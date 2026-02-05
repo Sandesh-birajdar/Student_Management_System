@@ -10,6 +10,6 @@ import edu.cjc.sms.app.model.Student;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, Integer>{
 	
-	public List<Student> findAllByBatchNumberOrBatchMode(String bn ,String bm);
+	public List<Student> findAllByBatchNumber(String bn);
 
 }

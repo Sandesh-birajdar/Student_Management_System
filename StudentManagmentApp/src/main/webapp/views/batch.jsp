@@ -1,0 +1,76 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="d-flex justify-content-center align-center">
+
+		<div class="w-50 align-middle border border-info  border-3 mt-2"
+			style="height: 500px">
+			<h6 class="p-3 text-primary ">
+				<u>Batch Details :-</u>
+			</h6>
+
+			<div class="border border-secondary m-3 p-2">
+
+				<table class="table table-hover border border-secondary ">
+					<tbody>
+						<tr class="table-primary fs-6">
+							<th>Student Id</th>
+							<td>${st.studentId}</td>
+						</tr>
+						<tr class="table-primary fs-6">
+							<th>Student Name</th>
+							<td>${st.studentFullName}</td>
+						<tr class="table-primary fs-6">
+							<th>Course Name</th>
+							<td>${st.studentCourse}</td>
+						</tr>
+
+						<tr class="table-primary fs-6">
+							<th>Batch Number</th>
+							<td>${st.batchNumber}</td>
+						</tr>
+						</tr>
+						<tr class="table-danger fs-6">
+							<th>Fees Paid</th>
+							<td>${st.feesPaid}</td>
+						</tr>
+
+					</tbody>
+				</table>
+
+				<form action="batchchange">
+					<input type="text" name="studentId" value="${st.studentId}"
+						hidden="true">
+					<div class="bg-dark p-2  d-flex justify-content-between">
+						<label for="amount" class="text-info"><b>Select
+								Batch<br> Number
+						</b></label> <div class="col-md-6">
+									<label>Batch Number</label> <select class="form-select"
+										name="batchNumber">
+										<option>FDJ-160</option>
+										<option>REG-160</option>
+										<option>FDJ-161</option>
+										<option>REG-161</option>
+									</select>
+								</div>
+					      </div>
+					<div class="d-flex justify-content-center pt-5">
+						<button class="btn btn-success btn-sm ">Done</button>
+					</div>
+				</form>
+
+			</div>
+		</div>
+
+
+
+	</div>
+</body>
+</html>

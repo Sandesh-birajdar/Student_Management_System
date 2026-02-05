@@ -3,6 +3,7 @@ package edu.cjc.sms.app.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import edu.cjc.sms.app.model.Student;
@@ -36,9 +37,37 @@ public class StudentService  implements StudentServiceI{
 	}
 
 	@Override
-	public List<Student> searchStudentByBatchandMode(String bn,String bm) {
-		return sri.findAllByBatchNumberOrBatchMode(bn,bm);
+	public List<Student> searchStudentByBatch(String bn) {
+		return sri.findAllByBatchNumber(bn);
 		
+		
+	}
+
+	@Override
+	public List<Student> paging(int pageNo, int size) {
+		  List<Student> l = sri.findAll(PageRequest.of(pageNo, size)).getContent();
+		return l;
+	}
+
+	@Override
+	public Student getSingleStudent(int studentId) {
+		
+		return sri.findById(studentId).get();
+	}
+
+	@Override
+	public void updateStudentfee(int studentId, double amount) {
+		Student s = sri.findById(studentId).get();
+		s.setFeesPaid(s.getFeesPaid()+amount);
+		sri.save(s);
+		
+	}
+
+	@Override
+	public void updateStudentBatch(int studentId, String batchNumber) {
+		Student s= sri.findById(studentId).get();
+		s.setBatchNumber(batchNumber);
+		sri.save(s);
 		
 	}
 
